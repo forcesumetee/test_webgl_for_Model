@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anatomy 3D Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="ui-card">
+    <h1>Anatomy 3D Viewer</h1>
+    <p class="description">Upload a <code>.glb</code> or <code>.gltf</code> file to view the 3D model in real-time.</p>
+
+    <label class="upload-btn">
+      Choose Model
+      <input type="file" id="modelUpload" accept=".glb,.gltf" hidden />
+    </label>
+
+    <p id="fileName">No file chosen</p>
+    <p id="loadingMsg" class="hidden">Loading model...</p>
+
+    <button id="themeToggle" class="theme-toggle">Switch to Day Mode</button>
+
+    <div class="controls">
+      <h2>Model Controls</h2>
+
+      <label>Scale:
+        <input type="range" id="scaleSlider" min="0.1" max="3" step="0.1" value="1">
+      </label>
+
+      <label>Rotate Y:
+        <input type="range" id="rotateYSlider" min="0" max="6.28" step="0.01" value="0">
+      </label>
+
+      <label>Light Intensity:
+        <input type="range" id="lightSlider" min="0" max="2" step="0.1" value="1">
+      </label>
+    </div>
+  </div>
+
+  <canvas id="mainCanvas"></canvas>
+  <canvas id="gizmoCanvas"></canvas>
+
+  <script type="module" src="main.js"></script>
+  <iframe src="./gizmo-app/dist/index.html"
+  style="position:fixed;top:20px;right:20px;width:120px;height:120px;border:none;z-index:99999;pointer-events:none;">
+</iframe>
+</body>
+</html>

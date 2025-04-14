@@ -1,0 +1,178 @@
+:root {
+  --bg-color: #0e0e0e;
+  --text-color: #ffffff;
+  --text-description: #cccccc;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --file-text: #aaa;
+  --accent: #4caf50;
+  --accent-hover: #3e9143;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+canvas {
+  display: block;
+}
+
+#canvas-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#mainCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#gizmoCanvas {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.ui-card {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 20px 24px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  max-width: 360px;
+  z-index: 100000;
+}
+
+.ui-card h1 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ui-card .description {
+  font-size: 14px;
+  color: var(--text-description);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.upload-btn {
+  display: inline-block;
+  background-color: var(--accent);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+#fileName,
+#loadingMsg {
+  font-size: 13px;
+  margin-top: 10px;
+  color: var(--file-text);
+}
+
+.hidden {
+  display: none;
+}
+
+.theme-toggle {
+  margin-top: 16px;
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.controls {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+}
+
+.controls h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.controls input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: var(--file-text);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+}
+
+.controls input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+}
+
+body.day-mode {
+  --bg-color: #f1f1f1;
+  --text-color: #111;
+  --text-description: #444;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --file-text: #333;
+  --accent: #1976d2;
+  --accent-hover: #1565c0;
+}
